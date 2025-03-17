@@ -7,9 +7,6 @@ export async function GET(request: Request, { params }: { params: { slug: string
     const param = await params;
     const id = param.slug
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 600))
-
     let posts: BlogPost[] = []
 
     try {
