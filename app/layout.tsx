@@ -1,5 +1,5 @@
 import type React from "react";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/custom/theme-provider";
 import { Navbar } from "@/components/custom/navbar";
@@ -7,7 +7,7 @@ import { AuthProvider } from "@/components/custom/auth-provider";
 import "@/app/globals.css";
 import { Suspense } from "react";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Akieni Blog",
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={inter.className}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
