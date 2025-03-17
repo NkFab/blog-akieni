@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, Mail } from "lucide-react"
+import { Github } from "lucide-react"
 
 export default function SignIn() {
     const searchParams = useSearchParams()
