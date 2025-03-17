@@ -46,14 +46,19 @@ export function CommentSection({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ content: newComment }),
+        body: JSON.stringify({ 
+          content: newComment,
+          post_id: postSlug,
+          user_id: session.user?.email,
+         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to post comment");
-      }
-
       const newCommentData = await response.json();
+
+      if (!response.ok) {
+        console.error(newCommentData);
+        throw new Error(newCommentData.error || "Failed to post comment");
+      }
 
       setComments([newCommentData, ...comments]);
       setNewComment("");
