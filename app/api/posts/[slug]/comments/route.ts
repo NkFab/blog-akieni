@@ -30,7 +30,7 @@ export async function POST(request: Request) {
       id: Math.random().toString(36).substr(2, 9),
       user_id,
       post_id,
-      content: content.trim(),
+      main_content: content.trim(),
       created_at: new Date().toISOString(),
       user: {
         email: session.user.email || "",
