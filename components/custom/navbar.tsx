@@ -38,14 +38,10 @@ export function Navbar() {
       try {
         const res = await fetch("/api/categories");
         const data: { name: string }[] = await res.json();
-        console.log(data, "data");
         const updatedData = data.map(({ name }) => ({
           id: Math.floor(Math.random() * 1000), 
           name,
         }));
-
-        console.log(updatedData, "updatedData");
-
         setCategories(updatedData);
       } catch (error) {
         console.error("Failed to fetch categories:", error);

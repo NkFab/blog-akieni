@@ -23,7 +23,7 @@ export interface Comment {
   id: string;
   user_id: string;
   post_id: string;
-  content: string;
+  main_content: string;
   created_at?: string;
   updated_at?: string;
   user: User;

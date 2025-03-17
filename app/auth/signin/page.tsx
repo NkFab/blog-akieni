@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Github, Mail } from "lucide-react"
+import { Github } from "lucide-react"
 
 export default function SignIn() {
     const searchParams = useSearchParams()
@@ -61,7 +61,7 @@ export default function SignIn() {
                         )}
                     </Button>
 
-                    <Button
+                    {/* <Button
                         variant="outline"
                         className="w-full"
                         onClick={() => handleSignIn("google")}
@@ -78,7 +78,7 @@ export default function SignIn() {
                                 Sign in with Google
                             </span>
                         )}
-                    </Button>
+                    </Button> */}
                 </CardContent>
                 <CardFooter className="flex flex-col">
                     <div className="text-sm text-muted-foreground text-center mt-2">

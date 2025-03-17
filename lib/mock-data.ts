@@ -124,7 +124,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-1",
         user_id: "user-5",
         post_id: "post-1",
-        content:
+        main_content:
           "This was incredibly helpful! I've been trying to understand the differences between SSR and SSG for a while now.",
         created_at: "2023-09-16T14:23:00Z",
         updated_at: "2023-09-16T14:23:00Z",
@@ -134,7 +134,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-2",
         user_id: "user-6",
         post_id: "post-1",
-        content:
+        main_content:
           "Great introduction to Next.js! Would love to see a follow-up on more advanced topics like middleware and internationalization.",
         created_at: "2023-09-17T09:45:00Z",
         updated_at: "2023-09-17T09:45:00Z",
@@ -189,7 +189,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-3",
         user_id: "user-5",
         post_id: "post-2",
-        content:
+        main_content:
           "I've been using Bootstrap for years but this article convinced me to give Tailwind a try. The utility-first approach makes so much sense!",
         created_at: "2023-08-23T11:05:00Z",
         updated_at: "2023-08-23T11:05:00Z",
@@ -243,7 +243,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-4",
         user_id: "user-6",
         post_id: "post-3",
-        content:
+        main_content:
           "This article helped me convince my team to adopt TypeScript. The section on gradual migration was particularly useful!",
         created_at: "2023-07-11T14:20:00Z",
         updated_at: "2023-07-11T14:20:00Z",
@@ -298,7 +298,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-5",
         user_id: "user-5",
         post_id: "post-4",
-        content:
+        main_content:
           "This is the clearest explanation of Server Components I've read so far. The comparison with SSR really helped me understand the difference.",
         created_at: "2023-06-06T09:30:00Z",
         updated_at: "2023-06-06T09:30:00Z",
@@ -352,7 +352,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-6",
         user_id: "user-6",
         post_id: "post-5",
-        content:
+        main_content:
           "This article came at the perfect time as we're redesigning our API. The section on versioning strategies was particularly helpful!",
         created_at: "2023-05-19T10:05:00Z",
         updated_at: "2023-05-19T10:05:00Z",
@@ -406,7 +406,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-7",
         user_id: "user-5",
         post_id: "post-6",
-        content: "Great overview! I've been using Zustand lately and loving its simplicity compared to Redux.",
+        main_content: "Great overview! I've been using Zustand lately and loving its simplicity compared to Redux.",
         created_at: "2023-04-13T11:20:00Z",
         updated_at: "2023-04-13T11:20:00Z",
         user: mockUsers[4],
@@ -459,7 +459,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-8",
         user_id: "user-6",
         post_id: "post-7",
-        content:
+        main_content:
           "This is such an important topic that doesn't get enough attention. Thanks for the comprehensive guide!",
         created_at: "2023-03-21T09:15:00Z",
         updated_at: "2023-03-21T09:15:00Z",
@@ -513,7 +513,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-9",
         user_id: "user-5",
         post_id: "post-8",
-        content:
+        main_content:
           "We're in the process of breaking up our monolith and this article couldn't have come at a better time. The section on service boundaries was particularly helpful.",
         created_at: "2023-02-16T13:20:00Z",
         updated_at: "2023-02-16T13:20:00Z",
@@ -568,7 +568,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-10",
         user_id: "user-6",
         post_id: "post-9",
-        content:
+        main_content:
           "I've always thought ML was out of reach for me as a frontend developer. This article changed my perspective completely!",
         created_at: "2023-01-26T14:30:00Z",
         updated_at: "2023-01-26T14:30:00Z",
@@ -623,7 +623,7 @@ export const mockBlogPosts: BlogPost[] = [
         id: "comment-11",
         user_id: "user-5",
         post_id: "post-10",
-        content:
+        main_content:
           "This is the best explanation of CSS Grid I've ever read. The visual examples really helped me understand how it works.",
         created_at: "2022-12-11T09:45:00Z",
         updated_at: "2022-12-11T09:45:00Z",

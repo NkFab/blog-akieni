@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import type { BlogPost } from "@/lib/types"
-// import { mockBlogPosts } from "@/lib/mock-data"
+import { mockBlogPosts } from "@/lib/mock-data"
+import { toast } from "sonner";
 
 export async function GET(request: Request, { params }: { params: { slug: string } }) {
   try {
@@ -26,8 +27,11 @@ export async function GET(request: Request, { params }: { params: { slug: string
       posts = await response.json()
     } catch (apiError) {
       console.log(`External API error: ${apiError}. Using mock data instead.`)
+     toast("Error", {
+        description: "Failed to fetch post. Please try again." + apiError,
+      });
       // Fallback to mock data
-      // posts = mockBlogPosts
+      posts = mockBlogPosts
     }
 
     const post = posts.find((p) => p.id === id)

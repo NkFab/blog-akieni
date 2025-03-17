@@ -22,6 +22,8 @@ export function CommentSection({ comments: initialComments, postSlug }: CommentS
   const [newComment, setNewComment] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  console.log(comments)
+
   const handleSubmitComment = async () => {
     if (!newComment.trim()) return;
 
@@ -125,20 +127,20 @@ export function CommentSection({ comments: initialComments, postSlug }: CommentS
             No comments yet. Be the first to comment!
           </p>
         ) : (
-          comments.map((comment) => (
-            <div key={comment.id} className="flex gap-4">
+          comments?.map((comment) => (
+            <div key={comment?.id} className="flex gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarImage src={comment.user.profile_pic} alt={comment.user.username} />
-                <AvatarFallback>{comment.user.username?.charAt(0)}</AvatarFallback>
+                <AvatarImage src={comment?.user?.profile_pic} alt={comment?.user?.username} />
+                <AvatarFallback>{comment?.user?.username?.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
-                  <span className="font-medium">{comment.user.username}</span>
+                  <span className="font-medium">{comment?.user?.username}</span>
                   <span className="text-sm text-muted-foreground">
-                    {formatDate(comment.created_at || new Date().toISOString())}
+                    {formatDate(comment?.created_at || new Date().toISOString())}
                   </span>
                 </div>
-                <p className="text-sm">{comment.content}</p>
+                <p className="text-sm">{comment?.main_content}</p>
               </div>
             </div>
           ))
