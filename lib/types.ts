@@ -3,7 +3,7 @@ export interface Author {
   avatar: string
 }
 
-type User = {
+export interface User {
   id?: string;
   first_name?: string;
   middle_name?: string;

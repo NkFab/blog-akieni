@@ -17,7 +17,6 @@ import { Search, ChevronDown, Menu, X } from "lucide-react";
 import { useMobile } from "@/hooks/use-mobile";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Logo } from "./logo";
 
 export function Navbar() {
   const router = useRouter();
@@ -87,11 +86,10 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between">
         <div className="flex items-center gap-2 pl-2 lg:pl-6">
-          <Link href="/" className="font-bold text-xl">
-            <Logo classname="h-6 w-6" />
-            <span className="sr-only">Acme Inc</span>
+          <Link href="/">
+            <p className=" text-xl font-light tracking-widest">nmf...</p>
           </Link>
-          nmf...
+          
         </div>
 
         {isMobile ? (

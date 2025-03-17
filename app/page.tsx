@@ -77,7 +77,6 @@ export default function Home() {
       try {
         setIsLoadingMore(true)
 
-        // Build query params
         const sort = searchParams.get("sort") || "newest"
         const category = searchParams.get("category")
         const search = searchParams.get("search")
@@ -123,8 +122,8 @@ export default function Home() {
   return (
     <div className="container mx-auto py-8 px-4">
       <header className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">My Blog</h1>
-        <p className="text-muted-foreground">Thoughts, ideas, and everything in between</p>
+        <h1 className="text-4xl font-bold mb-2">Code & Chaos </h1>
+        <p className="text-muted-foreground">Tech, Trends & Tomorrow</p>
       </header>
 
       {isLoading ? (
