@@ -15,10 +15,7 @@ interface CommentSectionProps {
   postSlug: string;
 }
 
-export function CommentSection({
-  comments: initialComments,
-  postSlug,
-}: CommentSectionProps) {
+export function CommentSection({ comments: initialComments, postSlug }: CommentSectionProps) {
   const { data: session, status } = useSession();
 
   const [comments, setComments] = useState<Comment[]>(initialComments);
@@ -29,11 +26,8 @@ export function CommentSection({
     if (!newComment.trim()) return;
 
     if (!session) {
-      // Store the current URL and comment in sessionStorage
       sessionStorage.setItem("pendingComment", newComment);
       sessionStorage.setItem("redirectAfterLogin", `/blog/${postSlug}`);
-
-      // Redirect to login
       signIn();
       return;
     }
@@ -46,19 +40,20 @@ export function CommentSection({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           content: newComment,
           post_id: postSlug,
-          user_id: session.user?.email,
-         }),
+          user_id: session?.user?.email || "",
+        }),
       });
 
-      const newCommentData = await response.json();
-
       if (!response.ok) {
-        console.error(newCommentData);
-        throw new Error(newCommentData.error || "Failed to post comment");
+        const errorData = await response.json();
+        console.error("Error response from server:", errorData);
+        throw new Error(errorData.error || "Failed to post comment");
       }
+
+      const newCommentData = await response.json();
 
       setComments([newCommentData, ...comments]);
       setNewComment("");
@@ -69,16 +64,13 @@ export function CommentSection({
     } catch (error) {
       toast("Error", {
         description:
-          error instanceof Error
-            ? error.message
-            : "Failed to post your comment. Please try again.",
+          error instanceof Error ? error.message : "Failed to post your comment. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // Check for pending comment after login
   useEffect(() => {
     const pendingComment = sessionStorage.getItem("pendingComment");
     const redirectPath = sessionStorage.getItem("redirectAfterLogin");
@@ -120,8 +112,8 @@ export function CommentSection({
               {isSubmitting
                 ? "Posting..."
                 : session
-                ? "Post Comment"
-                : "Sign in to comment"}
+                  ? "Post Comment"
+                  : "Sign in to comment"}
             </Button>
           </>
         )}
@@ -136,10 +128,7 @@ export function CommentSection({
           comments.map((comment) => (
             <div key={comment.id} className="flex gap-4">
               <Avatar className="h-10 w-10">
-                <AvatarImage
-                  src={comment.user.profile_pic}
-                  alt={comment.user.username}
-                />
+                <AvatarImage src={comment.user.profile_pic} alt={comment.user.username} />
                 <AvatarFallback>{comment.user.username?.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex-1">
